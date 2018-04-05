@@ -1,0 +1,11 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'chessCalc/result_style.css' %}" />
+
+<h1 style="color:red;"> White player new Elo: {{ new_white_elo }}</h1> <br>
+<h1 style="color:red;"> Black player new Elo: {{ new_black_elo }}</h1><br><br>
+
+<form action="{% url 'chessCalc:calculator' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Return">
+</form>

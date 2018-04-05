@@ -1,0 +1,29 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'chessCalc/calc_style.css' %}" />
+
+
+<html>
+<body style="">
+    <h1>Elo ranking calculator</h1>
+
+    <form action="{% url 'chessCalc:results' %}" method="post">
+        {% csrf_token %}
+        White player ELO
+        <input type="number" min="0" name="white_elo" required> <br><br>
+        White player number of matches:
+        <input type="number" min="0" name="white_matches" required> <br><br>
+        Black player Elo:
+        <input type="number" min="0" name="black_elo" required> <br><br>
+        Black player number of matches:
+        <input type="number" min="0" name="black_matches" required> <br><br>
+        Winner:
+        <select name="winner" required>
+            <option value="white">White Wins</option>
+            <option value="black">Black Wins</option>
+            <option value="draw">Draw</option>
+        </select> <br><br>
+        <input type="submit" value="Calculate">
+    </form>
+</body>
+</html>
